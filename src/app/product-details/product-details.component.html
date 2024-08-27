@@ -1,0 +1,24 @@
+<div class="row product" *ngIf="productData">
+<div class="col-sm-6">
+  <img class="product-image" src="{{productData.image}}" alt="error">
+</div>
+<div class="col-sm-6">
+  <div class="product-details">
+    <h1>{{productData.pname}}</h1>
+    <h3>Price: {{productData.price}}</h3>
+    <div >
+    <h5 [style.backgroundColor]="productData.color" class="product-color"></h5>
+    </div>
+    <p>Type: {{productData.type}}</p>
+    <p>Description: {{productData.description}}</p>
+    <button *ngIf="!removeCart" (click)="AddToCart()" class="btn btn-warning">Add to cart</button>
+    <button *ngIf="removeCart" (click)="RemoveToCart(productData.id)" class="btn btn-warning">Remove from cart</button>
+    <button routerLink="/cart"  (click)="AddToCart()"  class="btn btn-success">Buy Now </button>
+    <div class="quantity-group">
+      <button (click)="handleQuantity('min')" class="btn btn-danger">-</button>
+      <input  type="text" value="{{prdocutQuantity}}">
+      <button (click)="handleQuantity('plus')" class="btn btn-success">+</button>
+    </div>
+  </div>
+</div>
+</div>

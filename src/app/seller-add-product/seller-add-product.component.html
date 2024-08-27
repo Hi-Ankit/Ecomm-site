@@ -1,0 +1,54 @@
+<div class="common-form">
+  <h1 class="my-5">Add products here</h1>
+  <div *ngIf="showMsg" class="mt-2" >
+    <ngb-alert>Product added sucessfuly!</ngb-alert>
+  </div>
+  <form [formGroup]="newproducts" (ngSubmit)="AddProduct(newproducts.value)">
+    <div class="row-cols-2 my-2">
+      <input
+        type="text"
+        placeholder="Enter Product Name"
+        formControlName="pname"
+      />
+    </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="text"
+        placeholder="Enter Product Type"
+        formControlName="type"
+      />
+    </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="text"
+        placeholder="Enter Product Color"
+        formControlName="color"
+      />
+    </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="text"
+        placeholder="Enter Product Price"
+        formControlName="price"
+      />
+    </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="text"
+        placeholder="Enter Product Description"
+        formControlName="description"
+      />
+    </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="text"
+        placeholder="Enter Product Image URL"
+        formControlName="image"
+      />
+    </div>
+    <div class="btn-group" style="width: 50%">
+      <button type="submit" (click)="newproducts.reset()" class="btn me-3">Submit</button>
+      <button type="reset" class="btn">Reset</button>
+    </div>
+  </form>
+</div>

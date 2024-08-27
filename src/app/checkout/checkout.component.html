@@ -1,0 +1,47 @@
+<div class="checkout">
+  <div class="row">
+    <h1 class="check-head my-5">Checkout</h1>
+    <p *ngIf="odrMessage" class="message">{{odrMessage}}</p>
+    <div class="checkout-form col-7">
+      <form #checkoutform="ngForm" (ngSubmit)="orderNow(checkoutform.value)">
+        <div class="row-cols-2">
+          <h1 style="width: 100%">Add shipping address</h1>
+        </div>
+        <div class="row-cols-2 my-2">
+          <input
+            type="email"
+            placeholder="Enter email"
+            name="email"
+            ngModel
+          />
+        </div>
+        <div class="row-cols-2 my-2">
+          <input
+            type="text"
+            placeholder="Enter address"
+            name="address"
+            ngModel
+          />
+        </div>
+        <div class="row-cols-2 my-2">
+          <input
+            type="text"
+            placeholder="Enter contact"
+            name="contact"
+            ngModel
+          />
+        </div>
+        <div class="row-cols-2 my-2">
+          <button class="btn" type="submit">Order now</button>
+        </div>
+      </form>
+    </div>
+    <div class="payment col-5">
+      <h1>Total amount payable: {{totalPrice}}</h1>
+      <div class="row">
+        <h1 class="col">Payment Method:</h1>
+        <h2 class="col">Pay on delevry</h2>
+      </div>
+    </div>
+  </div>
+</div>

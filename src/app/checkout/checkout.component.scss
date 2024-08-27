@@ -1,0 +1,36 @@
+input{
+  border: 2px solid blueviolet;
+  font-size: 20px;
+  padding: 6px;
+}
+button{
+  border: 2px solid blueviolet;
+  font-size: 18px;
+  border-radius: 0px;
+  background-color: rgba(137, 43, 226, 0.584);
+}
+button:hover{
+  background-color: blueviolet;
+  color: black;
+}
+.common-form{
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin: auto;
+}
+.checkout{
+  text-align: center;
+}
+.check-head{
+  font-size: 2rem;
+}
+.message{
+  color: green;
+  padding: 12px 20px;
+  background-color: rgb(159, 160, 159);
+  border: 1px solid rgb(89, 89, 89);
+  border-radius: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}

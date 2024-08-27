@@ -1,0 +1,44 @@
+<div class="my-order">
+  <h1>My orders</h1>
+  <div class="card">
+    <div class="row order-head py-3">
+      <div class="col-sm-3">
+        <span>Order</span>
+      </div>
+      <div class="col-sm-3">
+        <span>Order Id</span>
+      </div>
+      <div class="col-sm-2">
+        <span>Price</span>
+      </div>
+      <div class="col-sm-2">
+        <span>Status</span>
+      </div>
+      <div class="col-sm-2">
+        <span>Action</span>
+      </div>
+    </div>
+
+    <div class="row order-data my-3" *ngFor="let item of orderData">
+      <div class="col-sm-3">
+        <img
+          src="https://cdn4.iconfinder.com/data/icons/logistic-57/1024/order_confirm1-256.png"
+          height="50px"
+          alt="error"
+        />
+      </div>
+      <div class="col-sm-3">
+        <span>{{item.id}}</span>
+      </div>
+      <div class="col-sm-2">
+        <span>{{item.totalprice}}</span>
+      </div>
+      <div class="col-sm-2">
+        <span>Out for shipping</span>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-danger" (click)="cancelOrder(item.id)" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>

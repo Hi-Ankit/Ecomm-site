@@ -1,0 +1,71 @@
+<div class="common-form" *ngIf="!showLogin">
+  <h1 id="myheading" class="mt-5">Seller SignUp</h1>
+  <form [formGroup]="mynewform" (ngSubmit)="submitData(mynewform.value)">
+    <div class="row-cols-2 my-2">
+      <input type="text" placeholder="Enter name" formControlName="uname" />
+      <div class="m-auto" *ngIf="r('uname')?.touched && r('uname')?.invalid">
+        <small class="text-danger" *ngIf="r('uname')?.hasError('required')">This field is <strong>required</strong></small>
+        <small class="text-danger" *ngIf="r('uname')?.hasError('pattern')">UserName is not <strong>valid.</strong></small>
+        </div>
+    </div>
+
+    <div class="row-cols-2 my-2">
+      <input type="email" placeholder="Enter email" formControlName="email" />
+      <div class="m-auto" *ngIf="r('email')?.touched && r('email')?.invalid">
+      <small class="text-danger" *ngIf="r('email')?.hasError('required')">This field is <strong>required</strong></small>
+      <small class="text-danger" *ngIf="r('email')?.hasError('email')">Email is not <strong>valid.</strong></small>
+      </div>
+    </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="password"
+        placeholder="Enter password"
+        formControlName="password"
+      />
+      <div class="m-auto" *ngIf="r('password')?.touched && r('password')?.invalid">
+        <small class="text-danger" *ngIf="r('password')?.hasError('required')">This field is <strong>required</strong></small>
+        </div>
+    </div>
+    <div class="btn-group" style="width: 50%">
+      <button [disabled]="mynewform.invalid" type="submit" class="btn me-3">Submit</button>
+      <button type="reset" class="btn">Reset</button>
+    </div>
+  </form>
+  <div style="cursor: pointer" class="mt-1 mb-5" (click)="showlogin()">
+    Already registered? <strong>Login here!</strong>
+  </div>
+</div>
+
+<div class="common-form" *ngIf="showLogin">
+
+  <h1 id="myheading" class="mt-5">Seller Login</h1>
+  <div *ngIf="showMsg" class="mt-2" >
+    <ngb-alert>Email or passwrod is wrong</ngb-alert>
+  </div>
+  <form [formGroup]="myloginform" (ngSubmit)="Login(myloginform.value)">
+    <div class="row-cols-2 my-2">
+      <input type="email" placeholder="Enter email" formControlName="email" />
+    </div>
+      <div *ngIf="f('email')?.touched && f('email')?.invalid">
+        <small class="text-danger" *ngIf="f('email')?.hasError('required')">This field is <strong>required</strong></small>
+        <small class="text-danger" *ngIf="f('email')?.hasError('email')">Email is not <strong>valid.</strong></small>
+      </div>
+    <div class="row-cols-2 my-2">
+      <input
+        type="password"
+        placeholder="Enter password"
+        formControlName="password"
+      />
+    </div>
+    <div *ngIf="f('password')?.touched && f('password')?.invalid">
+      <small *ngIf="f('password')?.hasError('required')">This field is <strong>required</strong></small>
+    </div>
+    <div class="btn-group" style="width: 50%">
+      <button [disabled]="myloginform.invalid" type="submit" class="btn me-3">Login</button>
+      <button type="reset" class="btn">Reset</button>
+    </div>
+  </form>
+  <div style="cursor: pointer" class="mt-5 mb-5" (click)="showregister()">
+    Haven't registered yet? <strong>Register here!</strong>
+  </div>
+</div>

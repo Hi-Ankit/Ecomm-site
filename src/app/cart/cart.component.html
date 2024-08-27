@@ -1,0 +1,66 @@
+<div class="cart-page">
+  <div class="row">
+    <div class="col-sm-8 details">
+      <h1 class="mt-5">Cart-Page</h1>
+      <ul *ngFor="let item of cartData">
+        <li>
+          <img src="{{ item.image }}" alt="error" />
+        </li>
+        <li>
+          <span>{{ item.pname }}</span>
+        </li>
+        <li>
+          <span>Price: {{ item.price }}</span>
+        </li>
+        <li>
+          <span>Quantity: {{ item.quantity }}</span>
+        </li>
+        <li>
+          <button (click)="removeCart(item.id)" class="btn btn-danger">
+            Remove from cart
+          </button>
+        </li>
+      </ul>
+      <div class="emptyCart" *ngIf="cartData?.length === 0">
+        <h1 class="mt-5">Your Ecomm cart is empty</h1>
+        <h4 class="mb-5"><a routerLink="/home">Click here to buy now!</a></h4>
+      </div>
+    </div>
+    <div class="col-sm-4 summary">
+      <div *ngIf="billingData.amount">
+        <h1 class="mt-5">Summary</h1>
+        <ul>
+          <li><h2>Amount</h2><h2>{{billingData.amount}}</h2></li>
+          <li><span>Tax</span><span>+{{billingData.tax}}</span></li>
+          <li><span>Delivery</span><span>+{{billingData.delivery}}</span></li>
+          <li><span>Discount</span><span>-{{billingData.discount}}</span></li>
+          <li class="total">
+            <span><h2>Total:</h2></span><span><h2>{{billingData.total}}</h2></span>
+          </li>
+          <li><button routerLink="/checkout" class="btn btn-success mb-4"style="width: 100%;" type="button">Checkout</button></li>
+        </ul>
+      </div>
+      <div class="suggestions">
+        <h1 class="mt-5">Suggestions</h1>
+        <div class="row suggesRow">
+          <div *ngFor="let item of popularProductsBuy" class="product col-5 my-3">
+            <div class="productImage">
+              <a routerLink="/details/{{ item.id }}"
+                ><img src="{{ item.image }}" alt="error"
+              /></a>
+            </div>
+            <div class="productDescription">
+              <h4 class="sugges">{{ item.pname |titlecase}}</h4>
+              <p class="sugges">{{ item.description }}</p>
+              <p class="sugges">Rs: {{ item.price }}</p>
+              <div class="productOperations justify-content-between d-flex">
+                <a routerLink="/details/{{ item.id }}">View product</a>
+                <a routerLink="/cart" (click)="addtoCart(item.id)">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
