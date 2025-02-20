@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 export class SellerHomeComponent {
   deleteMsg = false;
   productList: undefined | product[];
-  constructor(private product: ProductService, private router: Router) {}
+  constructor(private service: ProductService, private router: Router) {}
   ngOnInit() {
     this.updatedListAfterOpr();
   }
   deleteOpr(id: any) {
     const confirmed = window.confirm('Sure? want to delete this?');
     if (confirmed) {
-      this.product.deleteProduct(id).subscribe((result: any) => {
+      this.service.deleteProduct(id).subscribe((result: any) => {
         if (result) {
           this.deleteMsg = true;
           this.updatedListAfterOpr();
@@ -30,7 +30,7 @@ export class SellerHomeComponent {
     }
   }
   updatedListAfterOpr() {
-    this.product.productList().subscribe((result) => {
+    this.service.productList().subscribe((result:any) => {
       this.productList = result;
     });
   }

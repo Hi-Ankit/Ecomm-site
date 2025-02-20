@@ -115,4 +115,7 @@ export class ProductService {
   cancelOrder(orderId: any) {
     return this.http.delete('http://localhost:3000/orders/' + orderId);
   }
+  productList(){
+    return this.http.get('http://localhost:3000/product');
+  }
 }
