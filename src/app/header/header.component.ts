@@ -54,6 +54,7 @@ export class HeaderComponent {
       this.cartItems=items.length
     })
   }
+  url="./assets/icon/ecomm.png";
   sellerLogout() {
     const confirmed = window.confirm('Sure? want to logout?');
     if (confirmed) {
@@ -70,7 +71,6 @@ export class HeaderComponent {
     if (query) {
       const element = query.target as HTMLTextAreaElement;
       this.Product.searchProducts(element.value).subscribe((result) => {
-        console.log(result);
         result.length = 5;
         this.searchResult = result;
         this.showSearchResult = true;
@@ -81,7 +81,6 @@ export class HeaderComponent {
     this.searchResult = undefined;
   }
   submitSearch(val: string) {
-    console.log(val);
     this.route.navigate([`search/${val}`]);
   }
 }

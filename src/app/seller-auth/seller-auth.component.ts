@@ -18,7 +18,6 @@ export class SellerAuthComponent {
   mynewform = this.myform();
 
   submitData(data: any) {
-    console.log(data);
     this.seller.sellerSignUp(data);
   }
 
@@ -55,7 +54,6 @@ export class SellerAuthComponent {
       }
     });
     this.seller.sellerLogin(data);
-    console.log(data);
   }
   showregister() {
     return (this.showLogin = false);

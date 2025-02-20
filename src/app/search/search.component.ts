@@ -12,7 +12,6 @@ constructor(private activeroute:ActivatedRoute,private product:ProductService){}
 serachResult:undefined|product[];
 ngOnInit():void{
   let query=this.activeroute.snapshot.paramMap.get('query')
-  console.log(query);
   query && this.product.searchProducts(query).subscribe((result)=>{
     this.serachResult=result;
   })

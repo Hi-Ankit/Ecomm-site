@@ -40,7 +40,6 @@ export class CheckoutComponent {
       this.cartData?.forEach((item)=>{
         setTimeout(() => {
         item.id && this.product.deleteCartItems(item.id)
-        console.log('Id',item.id);
         }, 600);
       })
       this.product.orderNow(orderData).subscribe((result)=>{

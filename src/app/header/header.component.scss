@@ -1,9 +1,22 @@
 .container{
   height: 100%;
 }
+.nav-parent{
+  background-color: #131921;
+}
 nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 0px;
+  padding: 12px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 40px;
+}
+.navelements{
+    display: flex;
+    flex-direction: row;
 }
 ul li {
   padding: 0px 12px;

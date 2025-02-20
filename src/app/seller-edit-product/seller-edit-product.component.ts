@@ -15,18 +15,15 @@ export class SellerEditProductComponent {
   showMsg=false;
   ngOnInit(){
     let productId=this.route.snapshot.paramMap.get('id')
-    console.log("id:",productId);
     productId && this.product.updateList(productId).subscribe((data)=>{
       this.productData=data
     })
   };
   EditedList(data:any){
-    console.log("Data:",data);
     if(this.productData){
       data.id=this.productData.id;
     }
     this.product.updateListData(data).subscribe((result)=>{
-     console.log("Result:",result);
 
     });
     if(data){

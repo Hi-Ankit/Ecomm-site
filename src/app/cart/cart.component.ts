@@ -31,7 +31,6 @@ export class CartComponent {
           let userId = user && JSON.parse(user).id;
           if (userId === undefined) {
             userId = user && JSON.parse(user)[0].id;
-            console.log('UserID', userId);
           }
           this.product.getCartList(userId);
         }
@@ -67,8 +66,6 @@ export class CartComponent {
       this.product.addTocart(productId).subscribe((result) => {
         if (result) {
           this.product.getCartList(userId);
-          console.log('ProductId:', productId);
-          console.log('Result:', result);
         }
       });
     }

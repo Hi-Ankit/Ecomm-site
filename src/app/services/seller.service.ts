@@ -30,12 +30,10 @@ export class SellerService {
       )
       .subscribe((result: any) => {
         if (result && result.body && result.body.length) {
-          console.log('user logged in');
           this.isSellerLoggedInn.next(true);
           localStorage.setItem('seller', JSON.stringify(result.body));
           this.router.navigate(['seller-home']);
         } else {
-          console.log('Login failed');
           return this.sellerLoggedIn.next(true);
         }
       });

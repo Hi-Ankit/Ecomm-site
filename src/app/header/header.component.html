@@ -1,19 +1,17 @@
-<div >
+<div class="nav-parent" >
   <nav
-    class="navbar navbar-expand-lg navbar-light bg-light px-4"
-    style="font-size: 20px; color: blueviolet"
   >
     <a
       class="navbar-brand"
-      style="font-size: 30px; color: blueviolet"
+      style="font-size: 30px;"
       routerLink="home"
-      ><img src="/src/assets/e-bay-high-resolution-logo-transparent.png" alt="Error"></a
+      ><img height="50px" src="https://cdn-icons-png.flaticon.com/128/3176/3176363.png" alt="Error">Ecomm-Site</a
     >
     <div class="search">
       <input
       #searchInput
         type="text"
-        style="display: flex; flex: 1"
+        style="display: flex; flex: 1;"
         placeholder="Search name of product"
         (keyup)="searchProducts($event)"
         (blur)="hideResult()"
@@ -26,23 +24,26 @@
       </ul>
     </div>
     <div [ngSwitch]="menuType">
-      <ul *ngSwitchCase="'default'" class="navbar-nav mr-auto mt-2 mt-lg-" style="cursor: pointer">
+      <ul *ngSwitchCase="'default'" class="navbar-nav mr-auto mt-2 navelements" style="cursor: pointer">
         <li routerLink="seller-auth" class="nav-item">Seller</li>
         <li routerLink="home" class="nav-item">Home</li>
         <li routerLink="/user-auth" class="nav-item">Login/Register</li>
         <li class="nav-item"></li>
         <li class="nav-item">Cart{{cartItems}}</li>
+        <li><i class="fa-solid fa-cart-shopping"></i></li>
+
       </ul>
-       <ul *ngSwitchCase="'user'" class="navbar-nav mr-auto mt-2 mt-lg-" style="cursor: pointer">
+       <ul *ngSwitchCase="'user'" class="navbar-nav mr-auto mt-2 navelements" style="cursor: pointer">
         <li routerLink="seller-auth" class="nav-item">Seller</li>
         <li routerLink="home" class="nav-item">Home</li>
         <li  class="nav-item">{{ userName | titlecase}}</li>
         <li (click)="userlogout()" class="nav-item">Logout</li>
         <li routerLink="my-order" class="nav-item">MyOrder</li>
         <li routerLink="cart" class="nav-item">Cart{{cartItems}}</li>
+        <li><i class="fa-solid fa-cart-shopping"></i></li>
       </ul>
 
-      <ul *ngSwitchCase="'seller'" class="navbar-nav mr-auto mt-2 mt-lg-" style="cursor: pointer">
+      <ul *ngSwitchCase="'seller'" class="navbar-nav mr-auto mt-2 navelements" style="cursor: pointer">
         <li routerLink="seller-add-product" class="nav-item">Add Product</li>
         <li routerLink="seller-home" class="nav-item">List Product</li>
         <li class="nav-item" (click)="sellerLogout()">Logout</li>

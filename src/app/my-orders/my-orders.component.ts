@@ -9,9 +9,11 @@ import { ProductService } from '../services/product.service';
 })
 export class MyOrdersComponent {
   orderData:grandtotal[]|undefined;
+  order = false;
   constructor(private product:ProductService){};
   ngOnInit(){
     this.getOrderList();
+    this.showLink();
   };
   cancelOrder(orderId:any|undefined){
     const confirmed=window.confirm("Sure want to cancel order?")
@@ -24,6 +26,15 @@ export class MyOrdersComponent {
   getOrderList(){
     this.product.orderList().subscribe((result)=>{
       this.orderData = result;
+      this.showLink();
     })
+  };
+  showLink(){
+    if(this.orderData && this.orderData.length){
+      this.order=true;
+    }
+    else{
+      this.order=false;
+    };
   };
 }

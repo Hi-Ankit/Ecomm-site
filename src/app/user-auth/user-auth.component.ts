@@ -47,7 +47,6 @@ export class UserAuthComponent {
   }
   Login(data: any) {
     this.user.userLogin(data);
-    console.log(data);
     this.localCartToRemoteCart();
   }
 
@@ -67,7 +66,6 @@ export class UserAuthComponent {
         setTimeout(() => {
           this.product.addTocart(cartData).subscribe((result) => {
             if (result) {
-              console.log('Item stored in db');
             }
           });
           if (cartDataList.length === index + 1) {

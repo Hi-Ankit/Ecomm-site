@@ -19,10 +19,8 @@ export class ProductDetailsComponent {
   ) {}
   ngOnInit(): void {
     let producId = this.activeRoute.snapshot.paramMap.get('productId');
-    console.log(producId);
     producId &&
       this.product.updateList(producId).subscribe((result) => {
-        console.log(result);
         this.productData = result;
         let cartData = localStorage.getItem('localCart');
         if (cartData && producId) {
@@ -41,7 +39,6 @@ export class ProductDetailsComponent {
           let userId = user && JSON.parse(user).id;
           if (userId === undefined) {
             userId = user && JSON.parse(user)[0].id;
-            console.log('UserID', userId);
           }
           this.product.getCartList(userId);
           this.product.cartData.subscribe((result) => {
@@ -81,7 +78,6 @@ export class ProductDetailsComponent {
           productId: this.productData.id,
         };
         delete cartData.id;
-        console.log("CartData:",cartData);
         this.product.addTocart(cartData).subscribe((result) => {
           if (result) {
             this.product.getCartList(userId);
@@ -103,7 +99,6 @@ export class ProductDetailsComponent {
           let userId = user && JSON.parse(user).id;
           if (userId === undefined) {
             userId = user && JSON.parse(user)[0].id;
-            console.log('UserID', userId);
           }
           this.product.getCartList(userId)
         }

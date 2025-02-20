@@ -19,7 +19,6 @@ export class UserService {
     this.http
       .post(this.baseUrl, user, { observe: 'response' })
       .subscribe((result: any) => {
-        console.log(result);
         if (result) {
           localStorage.setItem('user', JSON.stringify(result.body));
           this.route.navigate(['/']);
@@ -38,11 +37,9 @@ export class UserService {
       })
       .subscribe((result: any) => {
         if (result && result.body && result.body.length) {
-          console.log('User logged in');
           localStorage.setItem('user', JSON.stringify(result.body));
           this.route.navigate(['home']);
         } else {
-          console.log('login failed');
           return this.userLoggedIn.next(true);
         }
       });

@@ -14,10 +14,9 @@ export class ProductService {
     this.http
       .post('http://localhost:3000/product', data, { observe: 'response' })
       .subscribe((result): void => {
-        console.log(data, result);
       });
   }
-  productList() {
+  c() {
     return this.http.get<product[]>(this.baseUrl);
   }
   deleteProduct(id: any) {
@@ -73,7 +72,6 @@ export class ProductService {
         observe: 'response',
       })
       .subscribe((result) => {
-        console.log('res:', result);
         if (result && result.body) {
           this.cartData.emit(result.body);
         }

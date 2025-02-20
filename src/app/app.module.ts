@@ -25,6 +25,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { UserAuthComponent } from './user-auth/user-auth.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
-    MatOptionModule
+    MatOptionModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

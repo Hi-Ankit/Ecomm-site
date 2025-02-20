@@ -18,7 +18,6 @@ export class SellerHomeComponent {
   deleteOpr(id: any) {
     const confirmed = window.confirm('Sure? want to delete this?');
     if (confirmed) {
-      console.log('ID:', id);
       this.product.deleteProduct(id).subscribe((result: any) => {
         if (result) {
           this.deleteMsg = true;
