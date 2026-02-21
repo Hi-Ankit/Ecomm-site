@@ -42,7 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductDetailsComponent,
     UserAuthComponent,
     CheckoutComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
     AppComponent,
     HomeComponent,
     SellerAuthComponent,
