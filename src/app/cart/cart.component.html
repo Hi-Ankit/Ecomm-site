@@ -4,19 +4,19 @@
       <h1 class="mt-5">Cart-Page</h1>
       <ul *ngFor="let item of cartData">
         <li>
-          <img src="{{ item.image }}" alt="error" />
+          <img src="{{ item?.image }}" alt="error" />
         </li>
         <li>
-          <span>{{ item.pname }}</span>
+          <span>{{ item?.pname }}</span>
         </li>
         <li>
-          <span>Price: {{ item.price }}</span>
+          <span>Price: {{ item?.price }}</span>
         </li>
         <li>
-          <span>Quantity: {{ item.quantity }}</span>
+          <span>Quantity: {{ item?.quantity }}</span>
         </li>
         <li>
-          <button (click)="removeCart(item.id)" class="btn btn-danger">
+          <button (click)="removeCart(item?.id)" class="btn btn-danger">
             Remove from cart
           </button>
         </li>
@@ -45,17 +45,17 @@
         <div class="row suggesRow">
           <div *ngFor="let item of popularProductsBuy" class="product col-5 my-3">
             <div class="productImage">
-              <a routerLink="/details/{{ item.id }}"
-                ><img src="{{ item.image }}" alt="error"
+              <a routerLink="/details/{{ item?.id }}"
+                ><img src="{{ item?.image }}" alt="error"
               /></a>
             </div>
             <div class="productDescription">
-              <h4 class="sugges">{{ item.pname |titlecase}}</h4>
-              <p class="sugges">{{ item.description }}</p>
-              <p class="sugges">Rs: {{ item.price }}</p>
+              <h4 class="sugges">{{ item?.pname |titlecase}}</h4>
+              <p class="sugges">{{ item?.description }}</p>
+              <p class="sugges">Rs: {{ item?.price }}</p>
               <div class="productOperations justify-content-between d-flex">
-                <a routerLink="/details/{{ item.id }}">View product</a>
-                <a routerLink="/cart" (click)="addtoCart(item.id)">Add to cart</a>
+                <a routerLink="/details/{{ item?.id }}"></a>
+                <a routerLink="/cart" (click)="addtoCart(item?.id)" title="Add to cart"><i class="fa-duotone fa-solid fa-cart-arrow-down"></i></a>
               </div>
             </div>
           </div>

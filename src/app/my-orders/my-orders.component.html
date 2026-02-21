@@ -28,10 +28,10 @@
         />
       </div>
       <div class="col-sm-3">
-        <span>{{ item.id }}</span>
+        <span>{{ item?.id }}</span>
       </div>
       <div class="col-sm-2">
-        <span>{{ item.totalprice }}</span>
+        <span>{{ item?.totalprice }}</span>
       </div>
       <div class="col-sm-2">
         <span>Out for shipping</span>
@@ -39,7 +39,7 @@
       <div class="col-sm-2">
         <button
           class="btn btn-danger"
-          (click)="cancelOrder(item.id)"
+          (click)="cancelOrder(item?.id)"
           type="button"
         >
           Cancel
